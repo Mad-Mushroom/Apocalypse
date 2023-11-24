@@ -7,8 +7,10 @@
 #include "raylib.h"
 #include "raymath.h"
 
-#include "../imgui/imgui.h"
-#include "../imgui/rlImGui.h"
+#include "customVariables.h"
+#include "console/console.h"
+#include "objects/objects.h"
+#include "objects/physics.h"
 
 using namespace std;
 
