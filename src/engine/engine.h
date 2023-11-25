@@ -12,6 +12,7 @@
 #include "objects/objects.h"
 #include "objects/physics.h"
 #include "userinput/userinput.h"
+#include "timer/timer.h"
 
 using namespace std;
 

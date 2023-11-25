@@ -5,6 +5,7 @@ using namespace std;
 ConsoleClass Console;
 ObjectsClass Objects;
 PhysicsClass Physics;
+UserInputClass UserInput;
 
 void CreateWindow(int SizeX, int SizeY, string Title){
 	InitWindow(SizeX, SizeY, Title.c_str());
@@ -13,8 +14,21 @@ void CreateWindow(int SizeX, int SizeY, string Title){
 
 int main(){
     Init();
+	Texture2D TitleTexture = LoadTexture("res/engine/title.png");
+	TitleTexture.width = GetScreenWidth();
+	TitleTexture.height = GetScreenHeight();
+	Timer IntroTimer;
+	IntroTimer.StartTimer(2);
 	while (!WindowShouldClose()){
-		Update();
+		if(!IntroTimer.TimerDone()){
+			BeginDrawing();
+				DrawTexture(TitleTexture, 0, 0, WHITE);
+				ClearBackground(BLACK);
+			EndDrawing();
+			IntroTimer.UpdateTimer();
+		}else{
+			Update();
+		}
 	}
 	CloseWindow();
     return 0;

@@ -9,13 +9,13 @@ void Init(){
 
     Physics.SetupPhysics(9.81);
 
-    TestObj.Texture = LoadTexture("placeholder.png");
+    TestObj.Texture = LoadTexture("res/game/placeholder.png");
     TestObj.Position = {0,0};
     TestObj.Size = {100,100};
-    TestPlatform.Texture = LoadTexture("placeholder.png");
+    TestPlatform.Texture = LoadTexture("res/game/placeholder.png");
     TestPlatform.Position = {0, 700};
     TestPlatform.Size = {1280, 100};
-    STestPlatform.Texture = LoadTexture("placeholder.png");
+    STestPlatform.Texture = LoadTexture("res/game/placeholder.png");
     STestPlatform.Position = {0, 200};
     STestPlatform.Size = {300, 100};
 
