@@ -11,6 +11,7 @@
 #include "console/console.h"
 #include "objects/objects.h"
 #include "objects/physics.h"
+#include "userinput/userinput.h"
 
 using namespace std;
 

@@ -17,16 +17,14 @@ void Init(){
     TestPlatform.Size = {1280, 100};
     STestPlatform.Texture = LoadTexture("placeholder.png");
     STestPlatform.Position = {0, 200};
-    STestPlatform.Size = {200, 100};
+    STestPlatform.Size = {300, 100};
 
     Objects.AddObject(TestObj);
     Objects.AddObject(TestPlatform);
     Objects.AddObject(STestPlatform);
 
     Objects.Objects.at(0).Physics.Gravitation = true;
-    Objects.Objects.at(0).Physics.Mass = 0.1;
-
-    Physics.AddForceToObject(0, 100, 2, Directions::Right);
+    Objects.Objects.at(0).Physics.Mass = 0.2;
 }
 
 void Update(){
@@ -35,7 +33,11 @@ void Update(){
 
     Physics.CalculatePhysics();
 
+    Objects.Objects.at(0).Position.x++;
+
     Objects.DrawAllObjects();
+    
+    if(IsKeyDown(KEY_A)) DrawText("Hello World", 0, 0, 20, WHITE);
 
 	EndDrawing();
 }

@@ -3,7 +3,7 @@ NAME = Apocalypse
 OUTPUT = $(BIN-DIR)/$(NAME)
 SRC-DIR = ./src
 BIN-DIR = ./bin
-FILES = $(wildcard $(SRC-DIR)/*.cpp) $(wildcard $(SRC-DIR)/*/*.cpp) $(wildcard $(SRC-DIR)/engine/objects/*.cpp) $(wildcard $(SRC-DIR)/engine/console/*.cpp)
+FILES = $(shell find $(SRC-DIR) -name '*.cpp')
 COMPILER-FLAGS = -Wall -std=c++11
 LINKER-FLAGS = -lraylib
 
