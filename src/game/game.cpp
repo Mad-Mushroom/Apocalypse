@@ -4,18 +4,22 @@ Object TestObj("Obj");
 Object TestPlatform("Platform");
 Object STestPlatform("2Platform");
 
+Font font;
+
 void Init(){
     CreateWindow(1280, 720, "Apocalypse");
 
+    font = LoadFont("res/game/font/pixelcraft.otf");
+
     Physics.SetupPhysics(9.81);
 
-    TestObj.Texture = LoadTexture("res/game/placeholder.png");
+    TestObj.Texture = LoadTexture("res/game/text/placeholder.png");
     TestObj.Position = {0,0};
     TestObj.Size = {100,100};
-    TestPlatform.Texture = LoadTexture("res/game/placeholder.png");
+    TestPlatform.Texture = LoadTexture("res/game/text/placeholder.png");
     TestPlatform.Position = {0, 700};
     TestPlatform.Size = {1280, 100};
-    STestPlatform.Texture = LoadTexture("res/game/placeholder.png");
+    STestPlatform.Texture = LoadTexture("res/game/text/placeholder.png");
     STestPlatform.Position = {800, 600};
     STestPlatform.Size = {300, 100};
 
