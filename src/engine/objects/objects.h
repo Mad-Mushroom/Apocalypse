@@ -7,7 +7,7 @@ using namespace std;
 class Force {
 public:
     float force;
-    Directions direction;
+    Vector_2 direction;
     float duration;
 };
 

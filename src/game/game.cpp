@@ -16,7 +16,7 @@ void Init(){
     TestPlatform.Position = {0, 700};
     TestPlatform.Size = {1280, 100};
     STestPlatform.Texture = LoadTexture("res/game/placeholder.png");
-    STestPlatform.Position = {0, 200};
+    STestPlatform.Position = {800, 600};
     STestPlatform.Size = {300, 100};
 
     Objects.AddObject(TestObj);
@@ -25,6 +25,8 @@ void Init(){
 
     Objects.Objects.at(0).Physics.Gravitation = true;
     Objects.Objects.at(0).Physics.Mass = 0.2;
+
+    Physics.AddForceToObject(0, 1, 1, {1, 1});
 }
 
 void Update(){
@@ -33,11 +35,12 @@ void Update(){
 
     Physics.CalculatePhysics();
 
-    Objects.Objects.at(0).Position.x++;
-
     Objects.DrawAllObjects();
+
+    DrawText(to_string(Physics.CheckIfObjectIsCollidingVec(0).x).c_str(), 0, 0, 20, WHITE);
+    DrawText(to_string(Physics.CheckIfObjectIsCollidingVec(0).y).c_str(), 0, 20, 20, WHITE);
     
-    if(IsKeyDown(KEY_A)) DrawText("Hello World", 0, 0, 20, WHITE);
+    if(UserInput.KeyDown(KEY_A)) DrawText("Hello World", 0, 0, 20, WHITE);
 
 	EndDrawing();
 }
