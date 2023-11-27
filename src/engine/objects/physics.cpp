@@ -10,9 +10,9 @@ void PhysicsClass::CalculatePhysics(){
     
         for(int j=0; j<Objects.Objects.at(i).Physics.ForcesCount; j++){
             if(Objects.Objects.at(i).Physics.Forces.at(j).duration >= 0){
-                if(CheckIfObjectIsCollidingVec(i).x+2 < Objects.Objects.at(i).Size.x) Objects.Objects.at(i).Position.x += (Objects.Objects.at(i).Physics.Forces.at(j).direction.x * Objects.Objects.at(i).Physics.Forces.at(j).force);
-                if(CheckIfObjectIsCollidingVec(i).y+2 < Objects.Objects.at(i).Size.y) Objects.Objects.at(i).Position.y += (Objects.Objects.at(i).Physics.Forces.at(j).direction.y * Objects.Objects.at(i).Physics.Forces.at(j).force);
-                Objects.Objects.at(i).Physics.Forces.at(j).duration -= 1/144;
+                if(CheckIfObjectIsCollidingVec(i).x+2 < Objects.Objects.at(i).Size.x) Objects.Objects.at(i).Position.x += (Objects.Objects.at(i).Physics.Forces.at(j).direction.x * Objects.Objects.at(i).Physics.Forces.at(j).force) - Objects.Objects.at(i).Physics.Mass/10;
+                if(CheckIfObjectIsCollidingVec(i).y+2 < Objects.Objects.at(i).Size.y) Objects.Objects.at(i).Position.y += (Objects.Objects.at(i).Physics.Forces.at(j).direction.y * Objects.Objects.at(i).Physics.Forces.at(j).force) - Objects.Objects.at(i).Physics.Mass/10;
+                Objects.Objects.at(i).Physics.Forces.at(j).duration -= (float)1/144;
             }
         }
     }
@@ -33,7 +33,7 @@ bool PhysicsClass::CheckIfObjectIsColliding(int ObjIndex){
 
 Vector_2 PhysicsClass::CheckIfObjectIsCollidingVec(int ObjIndex){
     for(int i=0; i<Objects.ObjectCount; i++){
-        cout << Objects.Objects.at(i).Name << " - " << Objects.Objects.at(i).Position.x << " : " << Objects.Objects.at(i).Position.x + Objects.Objects.at(i).Size.x << " - " << Objects.Objects.at(i).Position.y << " : " << Objects.Objects.at(i).Position.y + Objects.Objects.at(i).Size.y << endl;
+        //cout << Objects.Objects.at(i).Name << " - " << Objects.Objects.at(i).Position.x << " : " << Objects.Objects.at(i).Position.x + Objects.Objects.at(i).Size.x << " - " << Objects.Objects.at(i).Position.y << " : " << Objects.Objects.at(i).Position.y + Objects.Objects.at(i).Size.y << endl;
         if(Objects.Objects.at(i).Name == Objects.Objects.at(ObjIndex).Name) continue;
         if(!Objects.Objects.at(i).Physics.Collision || !Objects.Objects.at(ObjIndex).Physics.Collision) return {0,0};
         if(Objects.Objects.at(ObjIndex).Position.y + Objects.Objects.at(ObjIndex).Size.y >= Objects.Objects.at(i).Position.y && Objects.Objects.at(ObjIndex).Position.y <= Objects.Objects.at(i).Position.y + Objects.Objects.at(i).Size.y){

@@ -6,6 +6,7 @@ ConsoleClass Console;
 ObjectsClass Objects;
 PhysicsClass Physics;
 UserInputClass UserInput;
+GuiClass GUI;
 
 void CreateWindow(int SizeX, int SizeY, string Title){
 	InitWindow(SizeX, SizeY, Title.c_str());
@@ -27,7 +28,9 @@ int main(){
 			EndDrawing();
 			IntroTimer.UpdateTimer();
 		}else{
+			BeginDrawing();
 			Update();
+			EndDrawing();
 		}
 	}
 	CloseWindow();
